@@ -6,17 +6,20 @@
     <!-- main -->
     <main>
       <!-- componenti main -->
+      <MyListmusic/>
     </main>
   </div>
 </template>
 
 <script>
-import MyHeader from './components/MyHeader.vue'
+import MyHeader from './components/MyHeader.vue';
+import MyListmusic from './components/MyListmusic.vue';
 
 export default {
   name: 'App',
   components: {
-    MyHeader
+    MyHeader,
+    MyListmusic
   }
 }
 </script>
