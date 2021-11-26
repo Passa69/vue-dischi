@@ -1,7 +1,7 @@
 <template>
   <div>
       <img :src="details.poster" alt="details.title">
-      <h3>{{details.title}}</h3>
+      <h5>{{details.title}}</h5>
       <p>{{details.author}}</p>
       <p>{{details.year}}</p>
   </div>
@@ -20,21 +20,21 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 div {
-    height: 400px;
-    width: 230px;
-    margin: 50px 20px 20px 100px;
+    height: 350px;
+    width: 180px;
+    margin: 50px;
     background-color: #2e3a46;
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
+    justify-content: center;
 
     img {
-        margin-top: 30px;
-        width: 180px;
+        width: 150px;
     }
 
-    h3 {
-        margin: 10px 0;
+    h5 {
+        margin: 10px;
     }
 
     p {
