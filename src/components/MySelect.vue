@@ -1,5 +1,5 @@
 <template>
-  <select name="genres" v-model="selectedValue" @change="MyElements, $emit('search', selectedValue)">
+  <select name="genres" v-model="selectedValue" @change="$emit('search', selectedValue)">
       <option value="1">Rock</option>
       <option value="2">Pop</option>
       <option value="3">Metal</option>
@@ -26,11 +26,6 @@ export default {
 //           }
 //       }
 //   },
-  methods: {
-      MyElements() {
-          console.log('il valore è', this.selectedValue);
-      }
-  }
 
 }
 </script>

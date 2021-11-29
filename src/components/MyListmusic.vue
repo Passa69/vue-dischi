@@ -1,7 +1,7 @@
 <template>
   <div>
     <MySelect
-    @search="selection"/>
+    @search="MyElements"/>
     <div id="songs">
       <MyMusic
       v-for="disch, i in dischs"
@@ -31,6 +31,9 @@ export default {
   created() {
     this.getMusic();
   },
+  // computed: {
+    
+  // },
   methods: {
     getMusic() {
       axios
@@ -39,8 +42,8 @@ export default {
         this.dischs = music.data.response;
       })
     },
-    selection() {
-      console.log('ciao');
+    MyElements() {
+        console.log('ciao');
     }
   }
 
