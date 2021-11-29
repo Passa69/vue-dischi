@@ -1,15 +1,25 @@
 <template>
-  <select name="genere" id="">
-      <option value="">All</option>
-      <option value="">Rock</option>
-      <option value="">Pop</option>
-      <option value="">Metal</option>
+  <select name="genres" v-model="selectedValue" @change="filteredElements">
+      <option value="1">Rock</option>
+      <option value="2">Pop</option>
+      <option value="3">Metal</option>
   </select>
 </template>
 
 <script>
 export default {
   name: 'MySelect',
+
+  data() {
+      return {
+          selectedValue: "",
+      }
+  },
+  methods: {
+      filteredElements() {
+          console.log('il valore è', this.selectedValue);
+      }
+  }
 
 }
 </script>
