@@ -1,5 +1,6 @@
 <template>
   <select name="genres" v-model="selectedValue" @change="$emit('search', selectedValue)">
+      <option value="0">All</option>
       <option value="1">Rock</option>
       <option value="2">Pop</option>
       <option value="3">Jazz</option>
@@ -16,17 +17,6 @@ export default {
           selectedValue: "",
       }
   },
-//   computed: {
-//       filteredElements() {
-//           if (selectedValue == "1") {
-//               return
-//           } else if (selectedValue == "2") {
-//               return
-//           } else {
-//               return
-//           }
-//       }
-//   },
 
 }
 </script>

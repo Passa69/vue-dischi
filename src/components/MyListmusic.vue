@@ -4,7 +4,7 @@
     @search="MyElements"/>
     <div id="songs">
       <MyMusic
-      v-for="disch, i in dischs"
+      v-for="disch, i in filteredElements"
       :key="i"
       :details="disch"/>
     </div>
@@ -31,19 +31,21 @@ export default {
   created() {
     this.getMusic();
   },
-    // computed: {
-    //     filteredElements() {
-    //         if (selected == "1") {
-    //             return this.dischs.genre= "Rock"
-    //         } else if (selected == "2") {
-    //             return this.dischs.genre= "Pop"
-    //         } else if (selected == "3"){
-    //             return this.dischs.genre= "Jazz"
-    //         } else {
-    //             return this.dischs.genre= "Metal"
-    //         }
-    //     }
-    // },
+  computed: {
+      filteredElements() {
+          if (selected === "0") {
+            return this.dischs
+          } else if (selected === "1") {
+              return this.dischs.genre= "Rock"
+          } else if (selected === "2") {
+              return this.dischs.genre= "Pop"
+          } else if (selected === "3"){
+              return this.dischs.genre= "Jazz"
+          } else if (selected === "4"){
+              return this.dischs.genre= "Metal"
+          }
+      }
+  },
   methods: {
     getMusic() {
       axios
