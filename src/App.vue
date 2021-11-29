@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <!-- header -->
-    <MyHeader/>
+    <header>
+      <MyHeader/>
+    </header>
 
     <!-- main -->
     <main>
@@ -38,8 +40,11 @@ export default {
   text-align: center;
   color: white;
 }
-
+header {
+  height: 15vh;
+}
 main {
+  height: 150vh;
   background-color: #1e2d3b;
 }
 </style>

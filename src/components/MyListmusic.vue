@@ -4,7 +4,7 @@
     @search="MyElements"/>
     <div id="songs">
       <MyMusic
-      v-for="disch, i in filteredElements"
+      v-for="disch, i in filtered"
       :key="i"
       :details="disch"/>
     </div>
@@ -26,39 +26,41 @@ export default {
     return {
       apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       dischs: [],
+      selected: ""
     }
   },
   created() {
     this.getMusic();
   },
-  computed: {
-      filteredElements() {
-          if (selected === "0") {
-            return this.dischs
-          } else if (selected === "1") {
-              return this.dischs.genre= "Rock"
-          } else if (selected === "2") {
-              return this.dischs.genre= "Pop"
-          } else if (selected === "3"){
-              return this.dischs.genre= "Jazz"
-          } else if (selected === "4"){
-              return this.dischs.genre= "Metal"
-          }
-      }
-  },
   methods: {
     getMusic() {
-      axios
-      .get(this.apiUrl)
-      .then((music) => {
-        this.dischs = music.data.response;
+    axios
+    .get(this.apiUrl)
+    .then((music) => {
+      this.dischs = music.data.response;
       })
     },
     MyElements(selected) {
-        console.log(selected);
+      console.log(selected);
+      this.selected = selected
+    }
+  },
+  computed: {
+    filtered () {
+      let filtered = this.dischs;
+      let element  = this.selected;
+
+      if(element === "") {
+          return this.dischs
+      }
+
+      filtered = filtered.filter((item) => {
+          return item.genre === this.selected
+      });
+
+      return filtered;
     }
   }
-
 }
 </script>
 
