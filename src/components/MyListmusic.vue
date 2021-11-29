@@ -1,20 +1,25 @@
 <template>
   <div>
+    <MySelect/>
+    <div id="songs">
       <MyMusic
       v-for="disch, i in dischs"
       :key="i"
       :details="disch"/>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import MyMusic from '@/components/MyMusic.vue';
+import MySelect from '@/components/MySelect.vue';
 
 export default {
   name: 'MyListmusic',
   components: {
-    MyMusic
+    MyMusic,
+    MySelect
   },
   data() {
     return {
@@ -40,7 +45,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-div {
+#songs {
     padding: 20px 50px;
     display: flex;
     flex-flow: row wrap;
