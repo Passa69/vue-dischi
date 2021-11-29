@@ -31,9 +31,19 @@ export default {
   created() {
     this.getMusic();
   },
-  // computed: {
-    
-  // },
+    // computed: {
+    //     filteredElements() {
+    //         if (selected == "1") {
+    //             return this.dischs.genre= "Rock"
+    //         } else if (selected == "2") {
+    //             return this.dischs.genre= "Pop"
+    //         } else if (selected == "3"){
+    //             return this.dischs.genre= "Jazz"
+    //         } else {
+    //             return this.dischs.genre= "Metal"
+    //         }
+    //     }
+    // },
   methods: {
     getMusic() {
       axios
@@ -42,8 +52,8 @@ export default {
         this.dischs = music.data.response;
       })
     },
-    MyElements() {
-        console.log('ciao');
+    MyElements(selected) {
+        console.log(selected);
     }
   }
 
