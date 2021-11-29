@@ -1,6 +1,7 @@
 <template>
   <div>
-    <MySelect/>
+    <MySelect
+    @search="selection"/>
     <div id="songs">
       <MyMusic
       v-for="disch, i in dischs"
@@ -37,6 +38,9 @@ export default {
       .then((music) => {
         this.dischs = music.data.response;
       })
+    },
+    selection() {
+      console.log('ciao');
     }
   }
 

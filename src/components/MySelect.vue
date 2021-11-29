@@ -1,5 +1,5 @@
 <template>
-  <select name="genres" v-model="selectedValue" @change="MyElements">
+  <select name="genres" v-model="selectedValue" @change="MyElements, $emit('search', selectedValue)">
       <option value="1">Rock</option>
       <option value="2">Pop</option>
       <option value="3">Metal</option>
@@ -15,17 +15,17 @@ export default {
           selectedValue: "",
       }
   },
-  computed: {
-      filteredElements() {
-          if (selectedValue == "1") {
-              return
-          } else if (selectedValue == "2") {
-              return
-          } else {
-              return
-          }
-      }
-  },
+//   computed: {
+//       filteredElements() {
+//           if (selectedValue == "1") {
+//               return
+//           } else if (selectedValue == "2") {
+//               return
+//           } else {
+//               return
+//           }
+//       }
+//   },
   methods: {
       MyElements() {
           console.log('il valore è', this.selectedValue);
