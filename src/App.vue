@@ -2,7 +2,7 @@
   <div id="app">
     <!-- header -->
     <header>
-      <MyHeader/>
+      <MySelect/>
     </header>
 
     <!-- main -->
@@ -14,13 +14,13 @@
 </template>
 
 <script>
-import MyHeader from './components/MyHeader.vue';
+import MySelect from './components/MySelect.vue';
 import MyListmusic from './components/MyListmusic.vue';
 
 export default {
   name: 'App',
   components: {
-    MyHeader,
+    MySelect,
     MyListmusic
   }
 }

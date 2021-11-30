@@ -1,7 +1,7 @@
 <template>
   <div>
-    <MySelect
-    @search="MyElements"/>
+    <!-- <MySelect
+    @search="MyElements"/> -->
     <div id="songs">
       <MyMusic
       v-for="disch, i in filtered"
@@ -14,13 +14,13 @@
 <script>
 import axios from 'axios';
 import MyMusic from '@/components/MyMusic.vue';
-import MySelect from '@/components/MySelect.vue';
+// import MySelect from '@/components/MySelect.vue';
 
 export default {
   name: 'MyListmusic',
   components: {
     MyMusic,
-    MySelect
+    // MySelect
   },
   data() {
     return {
