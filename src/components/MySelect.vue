@@ -2,11 +2,23 @@
   <header>
     <p>&#9679;</p>
 
-    <select name="genres" v-model="selectedValue" @change="$emit('search', selectedValue)">
-      <option value="Rock">Rock</option>
+    <select 
+        name="genres" 
+        v-model="selectedValue" 
+        @change="$emit('cheangedGenre', selectedValue)">
+
+      <!-- <option value="Rock">Rock</option>
       <option value="Pop">Pop</option>
       <option value="Jazz">Jazz</option>
-      <option value="Metal">Metal</option>
+      <option value="Metal">Metal</option> -->
+
+      <option value="">Seleziona un genere</option>
+      <option
+          v-for="(genre, index) in genres"
+          :key="index"
+          :value="genre">
+          {{ genre }}
+          </option>
     </select>
   </header>
   
@@ -15,7 +27,9 @@
 <script>
 export default {
   name: 'MySelect',
-
+  props: {
+    genres: Array,
+  },
   data() {
       return {
           selectedValue: "",

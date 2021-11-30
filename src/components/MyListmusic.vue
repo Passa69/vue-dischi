@@ -4,9 +4,9 @@
     @search="MyElements"/> -->
     <div id="songs">
       <MyMusic
-      v-for="disch, i in filtered"
+      v-for="(dischItem, i) in filtered"
       :key="i"
-      :details="disch"/>
+      :details="dischItem"/>
     </div>
   </div>
 </template>
@@ -22,10 +22,14 @@ export default {
     MyMusic,
     // MySelect
   },
+  props: {
+    selectedGenre: String,
+  },
   data() {
     return {
       apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       dischs: [],
+      genres: [],
       selected: ""
     }
   },
@@ -38,6 +42,17 @@ export default {
     .get(this.apiUrl)
     .then((music) => {
       this.dischs = music.data.response;
+
+      this.dischs.forEach((dischItem) => {
+        if (!this.genres.includes(dischItem.genre)) {
+            this.genres.push(dischItem.genre);
+        }
+      });
+
+      this.$emit("genresReady", this.genre);
+      })
+    .catch((error) => {
+      console.log("l'errore è: ", error);
       })
     },
     MyElements(selected) {
@@ -47,18 +62,13 @@ export default {
   },
   computed: {
     filtered () {
-      let filtered = this.dischs;
-      let element  = this.selected;
-
-      if(element === "") {
+      if(this.selectedGenre === "") {
           return this.dischs
       }
 
-      filtered = filtered.filter((item) => {
-          return item.genre === this.selected
-      });
-
-      return filtered;
+      return this.dischs.filter(
+        (item) => item.genre === this.selectedGenre
+      );
     }
   }
 }
