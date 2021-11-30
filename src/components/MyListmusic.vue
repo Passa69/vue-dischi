@@ -29,8 +29,7 @@ export default {
     return {
       apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       dischs: [],
-      genres: [],
-      selected: ""
+      genres: []
     }
   },
   created() {
@@ -38,30 +37,27 @@ export default {
   },
   methods: {
     getMusic() {
-    axios
-    .get(this.apiUrl)
-    .then((music) => {
-      this.dischs = music.data.response;
+      axios
+      .get(this.apiUrl)
+      .then((music) => {
+        this.dischs = music.data.response;
 
-      this.dischs.forEach((dischItem) => {
-        if (!this.genres.includes(dischItem.genre)) {
-            this.genres.push(dischItem.genre);
-        }
-      });
+        this.dischs.forEach((dischItem) => {
+          if (!this.genres.includes(dischItem.genre)) {
+              this.genres.push(dischItem.genre);
+          }
+        });
 
-      this.$emit("genresReady", this.genre);
-      })
-    .catch((error) => {
-      console.log("l'errore è: ", error);
-      })
-    },
-    MyElements(selected) {
-      console.log(selected);
-      this.selected = selected
+        this.$emit("genresReady", this.genres);
+        })
+      .catch((error) => {
+        console.log("l'errore è: ", error);
+        })
     }
   },
   computed: {
     filtered () {
+      console.log(this.selectedGenre);
       if(this.selectedGenre === "") {
           return this.dischs
       }

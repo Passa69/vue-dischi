@@ -2,13 +2,13 @@
   <div id="app">
     <!-- header -->
     <header>
-      <MySelect :genres ="genresList" @changedGenre ="startSearch"/>
+      <MySelect :genres ="genresList" @cheangedGenre ="startSearch"/>
     </header>
 
     <!-- main -->
     <main>
       <!-- componenti main -->
-      <MyListmusic :selectedGenre ="genreToSearch" @genresReady ="getGenreList"/>
+      <MyListmusic :selectedGenre ="genreToSearch" @genresReady ="getGenresList"/>
     </main>
   </div>
 </template>
@@ -34,6 +34,7 @@ export default {
       this.genresList = allGenres;
     },
     startSearch(genreToSearch) {
+      console.log(genreToSearch);
       this.genreToSearch = genreToSearch;
     }
   }
