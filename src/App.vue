@@ -59,7 +59,7 @@ header {
   height: 15vh;
 }
 main {
-  height: 150vh;
+  height: 250vh;
   background-color: #1e2d3b;
 }
 </style>
